@@ -1,0 +1,75 @@
+{
+  "name": "jstransformer-lowlight",
+  "version": "0.0.0",
+  "description": "Lowlight support for JSTransformers",
+  "keywords": [
+    "jstransformer",
+    "lowlight",
+    "highlight.js"
+  ],
+  "scripts": {
+    "spell": "yaspeller-ci *.md",
+    "test": "test-jstransformer && eslint-ci . && yarn spell"
+  },
+  "dependencies": {
+    "escape-html": "^1.0.3",
+    "hast-util-to-html": "^6.0.2",
+    "lowlight": "^1.13.0"
+  },
+  "author": "Andrey Sitnik <andrey@sitnik.ru>",
+  "license": "MIT",
+  "repository": "ai/jstransformer-lowlight",
+  "devDependencies": {
+    "@logux/eslint-config": "^35.0.1",
+    "@logux/sharec-config": "^0.5.6",
+    "clean-publish": "^1.1.2",
+    "eslint": "^6.6.0",
+    "eslint-ci": "^1.0.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-es5": "^1.4.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.0.4",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prefer-let": "^1.0.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-unicorn": "^14.0.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.3",
+    "test-jstransformer": "^1.0.3",
+    "yaspeller-ci": "^1.0.1"
+  },
+  "eslintConfig": {
+    "extends": "@logux/eslint-config/node"
+  },
+  "eslintIgnore": [
+    "test/"
+  ],
+  "lint-staged": {
+    "*.md": "yaspeller",
+    "*.js": "eslint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "yaspeller": {
+    "lang": "en",
+    "ignoreCapitalization": true,
+    "ignoreText": [
+      " \\(by [^)]+\\)."
+    ],
+    "dictionary": [
+      "jstransformer",
+      "lowlight",
+      "JSTransformers",
+      "Versioning"
+    ]
+  },
+  "sharec": {
+    "config": "@logux/sharec-config",
+    "version": "0.5.6"
+  }
+}
